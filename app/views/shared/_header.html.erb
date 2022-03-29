@@ -1,6 +1,53 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 
-<header class='top-page-header'>
+<header class="page-header">
+  <div id="navArea">
+    <nav>
+      <div class="inner">
+        <ul>
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+          <% else %>
+            <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+            <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="toggle_btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div id="mask"></div>
+  </div>
+</header>
+
+<script>
+(function($) {
+  var $nav   = $('#navArea');
+  var $btn   = $('.toggle_btn');
+  var $mask  = $('#mask');
+  var open   = 'open'; // class
+  // menu open close
+  $btn.on( 'click', function() {
+    if ( ! $nav.hasClass( open ) ) {
+      $nav.addClass( open );
+    } else {
+      $nav.removeClass( open );
+    }
+  });
+  // mask close
+  $mask.on('click', function() {
+    $nav.removeClass( open );
+  });
+} )(jQuery);
+</script>
+
+<!--<header class='top-page-header'>
   <div class='search-bar-contents'>
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
     <form class="search-form" action="#">
@@ -25,4 +72,4 @@
       <% end %>
     </ul>
   </div>
-</header>
+</header>-->
