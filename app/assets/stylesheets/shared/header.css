@@ -1,0 +1,72 @@
+/*---------------------------------------------
+  Hamburger Nav
+  ---------------------------------------------*/
+  .hamburger-nav {
+    margin-top: 1.5em;
+    width: 30px;
+    text-align: right;
+  }
+  
+  .nav-list {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    padding: 60px 0 30px;
+    background: rgba(0, 0, 0, 0.95);
+    text-align: center;
+  }
+  .nav-list > li a {
+    display: block;
+    padding: 10px 1em;
+    text-decoration: none;
+    color: white;
+  }
+  .nav-list.open {
+    display: block;
+    z-index: 1;
+    animation: showAni .5s ease 0s 1 normal;
+  }
+  @keyframes showAni {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .nav-list.close {
+    display: block;
+    opacity: 0;
+    animation: hideAni .5s ease 0s 1 normal;
+  }
+  @keyframes hideAni {
+    0% {
+      opacity: 1;
+      z-index: 1;
+    }
+    100% {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+  .nav-toggle-button {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .nav-toggle-button.close::before, .nav-toggle-button.open::before {
+    font-family: 'FontAwesome';
+  }
+  .nav-toggle-button.close::before {
+    content: '\f0c9';
+  }
+  .nav-toggle-button.open::before {
+    content: '\f00d';
+  }
