@@ -1,14 +1,42 @@
+#page-header {
+  box-shadow: 0 2px 4px #ccc;
+}
+
+/*============
+logo-icon
+=============*/
+.logo-icon {
+  width: 130px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+.logo-icon a {
+  display: flex;
+}
+.logo-icon img {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .logo-icon {
+    width: 120px;
+    height: 60px;
+  }
+}
+
 /*============
 nav
 =============*/
 nav {
   display: block;
   position: fixed;
-  top: 0;
-  left: -300px;
+  left: -220px;
   bottom: 0;
-  width: 300px;
-  background: #ffffff;
+  width: 220px;
+  height: calc(100% - 55px);
+  background: #ffde00;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -44,22 +72,28 @@ nav .inner ul li a {
 nav .inner ul li a:hover {
   background: #e4e4e4;
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (min-width: 768px) {
   nav {
-    left: -220px;
-    width: 220px;
+    width: 240px;
+    height: 784px;
+    margin-bottom: calc(50vh - 422px)
+  }
+  .open nav {
+    left: calc(50vw - 195px);
   }
 }
+
 /*============
 .toggle_btn
 =============*/
 .toggle_btn {
   display: block;
   position: fixed;
-  top: 30px;
-  right: 30px;
-  width: 30px;
-  height: 30px;
+  top: 15px;
+  right: 18px;
+  width: 25px;
+  height: 25px;
   transition: all .5s;
   cursor: pointer;
   z-index: 3;
@@ -68,7 +102,7 @@ nav .inner ul li a:hover {
   display: block;
   position: absolute;
   left: 0;
-  width: 30px;
+  width: 25px;
   height: 2px;
   background-color: #333;
   border-radius: 4px;
@@ -78,25 +112,29 @@ nav .inner ul li a:hover {
   top: 4px;
 }
 .toggle_btn span:nth-child(2) {
-  top: 14px;
+  top: 13px;
 }
 .toggle_btn span:nth-child(3) {
-  bottom: 4px;
+  bottom: 1px;
 }
+.open .toggle_btn {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+/*
 .open .toggle_btn span {
   background-color: #fff;
 }
-.open .toggle_btn span:nth-child(1) {
-  -webkit-transform: translateY(10px) rotate(-315deg);
-  transform: translateY(10px) rotate(-315deg);
+*/
+
+@media screen and (min-width: 768px) {
+  .toggle_btn {
+    top: calc(50vh - 405px);
+    right: calc(50vw - 175px);
+  }
 }
-.open .toggle_btn span:nth-child(2) {
-  opacity: 0;
-}
-.open .toggle_btn span:nth-child(3) {
-  -webkit-transform: translateY(-10px) rotate(315deg);
-  transform: translateY(-10px) rotate(315deg);
-}
+
 /*============
 #mask
 =============*/
@@ -107,120 +145,23 @@ nav .inner ul li a:hover {
 .open #mask {
   display: block;
   position: fixed;
-  top: 0;
-  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 55px);
   background: #000;
-  opacity: .8;
+  opacity: .55;
   z-index: 2;
   cursor: pointer;
 }
 
-
-/*
-* {
-  box-sizing: border-box;
+@media screen and (min-width: 768px) {
+  .open #mask {
+    width: 390px;
+    height: 784px;
+    right: calc(50vw - 195px);
+    bottom: 0;
+    left: unset;
+    margin: calc(50vh - 357px) 0 calc(50vh - 422px);
+  }
 }
-
-.top-page-header {
-  width: 100vw;
-  padding: 2vh 15vw;
-  display: flex;
-  flex-direction: column;
-}
-
-.search-bar-contents {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.furima-icon {
-  width: 10vw;
-  margin-right: 10vw;
-}
-
-.search-form {
-  width: 65vw;
-  height: 5vh;
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.search-form>.input-box {
-  width: 100%;
-  height: 5vh;
-  padding-left: 10px;
-}
-
-.search-button {
-  width: 5vh;
-  border: 0;
-  cursor: pointer;
-  background-color: #3ccace;
-  padding: 8px;
-}
-
-.search-icon {
-  width: 100%;
-}
-
-.nav {
-  font-size: 18px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 1vh 0;
-}
-
-.lists-left {
-  display: flex;
-  min-width: 200px;
-
-}
-
-.category-list {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-}
-
-.brand-list {
-  text-decoration: none;
-  color: #333333;
-}
-
-.lists-right {
-  display: flex;
-  list-style: none;
-  align-items: flex-end;
-}
-
-
-.user-nickname {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-  font-weight: bold;
-}
-
-
-.logout {
-  text-decoration: none;
-  color: #333333;
-}
-
-.login {
-  text-decoration: none;
-  line-height: 32px;
-  margin-right: 3vw;
-  color: #333333;
-}
-
-.sign-up {
-  text-decoration: none;
-  color: #333333;
-}
-*/
