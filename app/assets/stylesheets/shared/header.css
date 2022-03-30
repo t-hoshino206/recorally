@@ -1,104 +1,173 @@
-* {
-  box-sizing: border-box;
+#page-header {
+  box-shadow: 0 2px 4px #ccc;
 }
 
-.top-page-header {
-  width: 100vw;
-  padding: 2vh 15vw;
+/*============
+logo-icon
+=============*/
+.logo-icon {
+  width: 130px;
+  height: 55px;
   display: flex;
-  flex-direction: column;
-}
-
-.search-bar-contents {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
 }
-
-.furima-icon {
-  width: 10vw;
-  margin-right: 10vw;
-}
-
-.search-form {
-  width: 65vw;
-  height: 5vh;
+.logo-icon a {
   display: flex;
-  margin-bottom: 5px;
 }
-
-.search-form>.input-box {
-  width: 100%;
-  height: 5vh;
-  padding-left: 10px;
-}
-
-.search-button {
-  width: 5vh;
-  border: 0;
-  cursor: pointer;
-  background-color: #3ccace;
-  padding: 8px;
-}
-
-.search-icon {
+.logo-icon img {
   width: 100%;
 }
 
-.nav {
-  font-size: 18px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 1vh 0;
+@media screen and (min-width: 768px) {
+  .logo-icon {
+    width: 120px;
+    height: 60px;
+  }
 }
 
-.lists-left {
-  display: flex;
-  min-width: 200px;
-
+/*============
+nav
+=============*/
+nav {
+  display: block;
+  position: fixed;
+  left: -220px;
+  bottom: 0;
+  width: 220px;
+  height: calc(100% - 55px);
+  background: #ffde00;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: all .5s;
+  z-index: 3;
+  opacity: 0;
 }
-
-.category-list {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
+.open nav {
+  left: 0;
+  opacity: 1;
 }
-
-.brand-list {
-  text-decoration: none;
-  color: #333333;
+nav .inner {
+  padding: 25px;
 }
-
-.lists-right {
-  display: flex;
-  list-style: none;
-  align-items: flex-end;
-}
-
-
-.user-nickname {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
+nav .inner .user-profile {
   font-weight: bold;
 }
-
-
-.logout {
+nav .inner .user-profile a {
+  font-size: 15px;
+}
+nav .inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav .inner ul li {
+  position: relative;
+  margin: 0;
+  border-bottom: 1px solid #333;
+}
+nav .inner ul li a {
+  display: block;
+  color: #333;
+  font-size: 14px;
+  padding: 1em;
   text-decoration: none;
-  color: #333333;
+  transition-duration: 0.2s;
+}
+nav .inner ul li a:hover {
+  background: #e4e4e4;
 }
 
-.login {
-  text-decoration: none;
-  line-height: 32px;
-  margin-right: 3vw;
-  color: #333333;
+@media screen and (min-width: 768px) {
+  nav {
+    width: 240px;
+    height: 784px;
+    margin-bottom: calc(50vh - 422px)
+  }
+  .open nav {
+    left: calc(50vw - 195px);
+  }
 }
 
-.sign-up {
-  text-decoration: none;
-  color: #333333;
+/*============
+.toggle_btn
+=============*/
+.toggle_btn {
+  display: block;
+  position: fixed;
+  top: 15px;
+  right: 18px;
+  width: 25px;
+  height: 25px;
+  transition: all .5s;
+  cursor: pointer;
+  z-index: 3;
+}
+.toggle_btn span {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 25px;
+  height: 2px;
+  background-color: #333;
+  border-radius: 4px;
+  transition: all .5s;
+}
+.toggle_btn span:nth-child(1) {
+  top: 4px;
+}
+.toggle_btn span:nth-child(2) {
+  top: 13px;
+}
+.toggle_btn span:nth-child(3) {
+  bottom: 1px;
+}
+.open .toggle_btn {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+/*
+.open .toggle_btn span {
+  background-color: #fff;
+}
+*/
+
+@media screen and (min-width: 768px) {
+  .toggle_btn {
+    top: calc(50vh - 405px);
+    right: calc(50vw - 175px);
+  }
+}
+
+/*============
+#mask
+=============*/
+#mask {
+  display: none;
+  transition: all .5s;
+}
+.open #mask {
+  display: block;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(100% - 55px);
+  background: #000;
+  opacity: .55;
+  z-index: 2;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .open #mask {
+    width: 390px;
+    height: 784px;
+    right: calc(50vw - 195px);
+    bottom: 0;
+    left: unset;
+    margin: calc(50vh - 357px) 0 calc(50vh - 422px);
+  }
 }
