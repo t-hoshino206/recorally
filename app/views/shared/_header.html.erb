@@ -7,11 +7,14 @@
     </div>
     <nav>
       <div class="inner">
+        <% if user_signed_in? %>
+          <dl class="user-profile">
+            <dt><%= link_to current_user.nickname, "#", class: "user-nickname" %></dt>
+            <dd><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></dd>
+          </dl>
+        <% end %>
         <ul>
-          <% if user_signed_in? %>
-            <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-          <% else %>
+          <% unless user_signed_in? %>
             <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
             <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
           <% end %>

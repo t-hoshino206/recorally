@@ -51,6 +51,12 @@ nav {
 nav .inner {
   padding: 25px;
 }
+nav .inner .user-profile {
+  font-weight: bold;
+}
+nav .inner .user-profile a {
+  font-size: 15px;
+}
 nav .inner ul {
   list-style: none;
   margin: 0;

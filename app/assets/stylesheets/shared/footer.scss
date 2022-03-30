@@ -3,14 +3,20 @@
   position: fixed;
   bottom: 0;
 }
-.copyright {
+#menuBtn {
   background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#menuBtn li {
   color: #fff;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
   #page-footer {
-    width: 30vw;
-    margin-bottom: 15vh;
+    width: 390px;
+    margin-bottom: calc(50vh - 422px);
   }
 }
