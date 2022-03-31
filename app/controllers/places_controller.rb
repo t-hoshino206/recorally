@@ -7,6 +7,6 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:name, :image, :menu, :prefecture, :address, :map).merge(card_id: params[:card_id])
+    params.require(:place).permit(:name, :image, :menu, :prefecture_id, :address, :map).merge(card_id: params[:card_id])
   end
 end

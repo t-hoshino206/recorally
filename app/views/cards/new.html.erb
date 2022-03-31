@@ -34,7 +34,7 @@
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:category, Category.all, :id, :name, {}, {class:"select-box", id:"card-category"}) %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"card-category"}) %>
       </div>
       <div class="form">
         <div class="weight-bold-text">
@@ -71,7 +71,7 @@
           都道府県
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:prefecture, Prefecture.all, :id, :name, {}, {class:"select-box", id:"place-prefecture"}) %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"place-prefecture"}) %>
       </div>
       <div class="form">
         <div class="weight-bold-text">
@@ -83,7 +83,6 @@
       <div class="form">
         <div class="weight-bold-text">
           地図
-          <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :map, class:"cards-text", id:"place-map", placeholder:"地図", maxlength:"200" %>
       </div>

@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2022_03_30_091500) do
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
-    t.integer "category", null: false
+    t.integer "category_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2022_03_30_091500) do
   create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "menu", null: false
-    t.integer "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "address", null: false
     t.string "map"
     t.bigint "card_id", null: false

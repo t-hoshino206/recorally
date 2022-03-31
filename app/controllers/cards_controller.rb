@@ -31,6 +31,6 @@ class CardsController < ApplicationController
   end
 
   def card_place_params
-    params.require(:card_place).permit(:title, :description, :category, :name, :menu, :prefecture, :address, :map, :image).merge(user_id: current_user.id)
+    params.require(:card_place).permit(:title, :description, :category_id, :name, :menu, :prefecture_id, :address, :map, :image).merge(user_id: current_user.id)
   end
 end
