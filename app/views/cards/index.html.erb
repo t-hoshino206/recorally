@@ -1,3 +1,22 @@
 <%= render "shared/header" %>
-<p>テスト</p>
+
+<div class="main">
+  <h2>新着スタンプラリー</h2>
+  <ul class="cards-list">
+    <% if @cards.exists? %>
+      <% @cards.each do |card| %>
+        <li>
+          <%= link_to card_path(card.id) do %>
+          <h3><%= card.title %></h3>
+          <p><%= card.description %></p>
+          <% end %>
+        </li>
+      <% end %>
+    <% else %>
+      <li>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
 <%= render "shared/footer" %>

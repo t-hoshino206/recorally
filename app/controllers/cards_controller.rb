@@ -1,7 +1,9 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!, except: :index
+  before_action :card_place_set, only: [:show]
 
   def index
+    @cards = Card.order(created_at: "DESC")
   end
 
   def new
@@ -18,7 +20,15 @@ class CardsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
+
+  def card_place_set
+    @card = Card.find(params[:id])
+    @place = Place.find(params[:id])
+  end
 
   def card_place_params
     params.require(:card_place).permit(:title, :description, :category, :name, :menu, :prefecture, :address, :map, :image).merge(user_id: current_user.id)
