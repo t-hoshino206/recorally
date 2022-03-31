@@ -1,0 +1,20 @@
+<%= render "shared/header" %>
+
+<div class="main">
+  <h2><%= @card.title %></h2>
+  <p><%= @card.description %></p>
+
+  <h3>リスト</h3>
+  <ul>
+    <li>
+      <%= @place.name %>
+      <%= image_tag @place.image ,class:"item-box-img" %>
+      <%= @place.menu %>
+      <%= @place.prefecture %>
+      <%= @place.address %>
+      <%= @place.map %>
+    </li>
+  </ul>
+</div>
+
+<%= render "shared/footer" %>
