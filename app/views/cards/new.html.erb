@@ -1,0 +1,113 @@
+<div class="cards-sell-contents">
+  <header class="cards-sell-header">
+    <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
+
+  </header>
+  <div class="cards-sell-main">
+    <h2 class="cards-sell-title">商品の情報を入力</h2>
+    <%= form_with model: @card_place, url: cards_path, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: @card_place %>
+
+    <%# カードの基本情報 %>
+    <div class="new-cards">
+      <div class="weight-bold-text">
+        カード名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"cards-text", id:"card-title", placeholder:"カード名（必須 40文字まで)", maxlength:"40" %>
+      <div class="cards-explain">
+        <div class="weight-bold-text">
+          カードの説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :description, class:"cards-text", id:"card-description", placeholder:"カードの説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /カードの基本情報 %>
+
+    <%# カードの詳細 %>
+    <div class="cards-detail">
+      <div class="weight-bold-text">商品の詳細</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:category, Category.all, :id, :name, {}, {class:"select-box", id:"card-category"}) %>
+      </div>
+      <div class="form">
+        <div class="weight-bold-text">
+          店名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :name, class:"cards-text", id:"place-name", placeholder:"店名", maxlength:"40" %>
+      </div>
+
+      <%# 商品画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        商品画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"place-image" %>
+      </div>
+    </div>
+    <%# /商品画像 %>
+
+      <div class="form">
+        <div class="weight-bold-text">
+          おすすめメニュー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :menu, class:"cards-text", id:"place-menu", placeholder:"おすすめメニュー", maxlength:"60" %>
+      </div>
+      <div class="form">
+        <div class="weight-bold-text">
+          都道府県
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:prefecture, Prefecture.all, :id, :name, {}, {class:"select-box", id:"place-prefecture"}) %>
+      </div>
+      <div class="form">
+        <div class="weight-bold-text">
+          アドレス
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :address, class:"cards-text", id:"place-address", placeholder:"アドレス", maxlength:"60" %>
+      </div>
+      <div class="form">
+        <div class="weight-bold-text">
+          地図
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :map, class:"cards-text", id:"place-map", placeholder:"地図", maxlength:"200" %>
+      </div>
+    </div>
+    <%# /商品の詳細 %>
+
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "作成する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">フリマ利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
+    <p class="inc">
+      ©︎Furima,Inc.
+    </p>
+  </footer>
+</div>
