@@ -1,18 +1,18 @@
 <%= render "shared/header" %>
 
 <div class="main">
-  <h2><%= @card.title %></h2>
-  <p><%= @card.description %></p>
+  <h2 class="card-title"><%= @card.title %></h2>
+  <p class="card-description"><%= @card.description %></p>
 
-  <h3>リスト</h3>
-  <ul>
+  <h2 class="midashi-list">リスト</h2>
+  <ul class="place-list">
     <li>
-      <%= @place.name %>
-      <%= image_tag @place.image ,class:"item-box-img" %>
-      <%= @place.menu %>
-      <%= @place.prefecture.name %>
-      <%= @place.address %>
-      <%= @place.map %>
+      <h3 class="place-name">店舗名：<%= @place.name %></h3>
+      <div class="place-image"><%= image_tag @place.image %></div>
+      <p class="place-menu">おすすめメニュー：<%= @place.menu %></p>
+      <p class="place-pref">所在地：<%= @place.prefecture.name %></p>
+      <p class="place-address">アドレス：<%= @place.address %></p>
+      <p class="place-map">Google Map：<%= link_to "こちら", @place.map %></p>
     </li>
   </ul>
 </div>

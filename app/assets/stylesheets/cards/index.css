@@ -1,0 +1,64 @@
+#cards-index .main {
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#cards-index .main h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.cards-list {
+  width: 100%;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+.cards-list li {
+  border-bottom: 1px solid #333;
+  padding: 2vh 3vw;
+}
+.cards-list li .card-detail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.cards-list li .user-avatar {
+  flex-basis: 13vw;
+}
+.cards-list li .user-avatar img {
+  width: 100%;
+  border-radius: 50px;
+}
+.cards-list li dl .card-text {
+  flex-basis: 65vw;
+}
+.cards-list li:last-child {
+  border-bottom: 0;
+}
+.cards-list li h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.cards-list li p {
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
+@media (min-width: 768px) {
+  #cards-index .main {
+    width: 350px;
+  }
+  .cards-list li {
+    padding: 10px 0;
+  }
+  .cards-list li .user-avatar {
+    flex-basis: 17%;
+    margin-top: 0.2em;
+  }
+  .cards-list li dl .card-text {
+    flex-basis: 75%;
+  }
+}
