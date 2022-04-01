@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :card_place_set, only: [:show]
+  before_action :card_set, only: [:edit, :update, :destroy]
+  before_action :card_places_set, only: [:show]
 
   def index
     @cards = Card.order(created_at: "DESC")
@@ -23,11 +24,39 @@ class CardsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @card.update(card_params)
+      redirect_to card_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @card.destroy
+    redirect_to root_path
+  end
+
   private
 
-  def card_place_set
+  def card_set
     @card = Card.find(params[:id])
-    @place = Place.find(params[:id])
+  end
+
+  def place_set
+    @place = Card.find(params[:id])
+  end
+
+  def card_places_set
+    @card = Card.find(params[:id])
+    @places = Place.order(created_at: "ASC")
+  end
+
+  def card_params
+    params.require(:card).permit(:title, :description, :category_id).merge(user_id: current_user.id)
   end
 
   def card_place_params
