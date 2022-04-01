@@ -1,19 +1,39 @@
 <%= render "shared/header" %>
 
 <div class="main">
+  <ul class="stamp-grid">
+    <% @places.each do |place| %>
+      <li>
+        <%= link_to card_place_path(place.card_id, place.id) do %>
+          <%= image_tag place.image %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
   <h2 class="card-title"><%= @card.title %></h2>
   <p class="card-description"><%= @card.description %></p>
 
+  <% if user_signed_in? && current_user.id == @card.user_id %>
+    <%= link_to "カード編集", edit_card_path(@card.id), method: :get, class: "card-red-btn" %>
+    <%= link_to "カード削除", card_path(@card.id), method: :delete, class:"card-destroy" %>
+  <% end %>
+
+  <% if user_signed_in? && current_user.id == @card.user_id %>
+    <%= link_to "リスト追加", new_card_place_path(@card.id), method: :get, class: " place-red-btn" %>
+  <% end %>
+
+
   <h2 class="midashi-list">リスト</h2>
   <ul class="place-list">
-    <li>
-      <h3 class="place-name">店舗名：<%= @place.name %></h3>
-      <div class="place-image"><%= image_tag @place.image %></div>
-      <p class="place-menu">おすすめメニュー：<%= @place.menu %></p>
-      <p class="place-pref">所在地：<%= @place.prefecture.name %></p>
-      <p class="place-address">アドレス：<%= @place.address %></p>
-      <p class="place-map">Google Map：<%= link_to "こちら", @place.map %></p>
-    </li>
+    <% @places.each do |place| %>
+      <%= link_to card_place_path(place.card_id, place.id) do %>
+        <li>
+          <h3 class="place-name">店舗名：<%= place.name %></h3>
+          <p class="place-menu">おすすめメニュー：<%= place.menu %></p>
+        </li>
+      <% end %>
+    <% end %>
   </ul>
 </div>
 

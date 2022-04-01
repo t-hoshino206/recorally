@@ -10,6 +10,25 @@
   margin-bottom: 20px;
 }
 
+.stamp-grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+}
+.stamp-grid li {
+  flex-basis: 32%;
+  margin-right: 2%;
+  border: 1px solid #333;
+}
+.stamp-grid li:nth-child(3n) {
+  margin-right: 0;
+}
+.stamp-grid li img {
+  width: 100%;
+}
+
 .cards-list {
   width: 100%;
   border-top: 1px solid #333;

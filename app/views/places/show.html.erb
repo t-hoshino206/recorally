@@ -1,0 +1,19 @@
+<%= render "shared/header" %>
+
+<div class="main">
+  <ul class="place-list">
+    <li>
+      <h3 class="place-name">店舗名：<%= @place.name %></h3>
+      <div class="place-image"><%= image_tag @place.image %></div>
+      <p class="place-menu">おすすめメニュー：<%= @place.menu %></p>
+      <p class="place-pref">所在地：<%= @place.prefecture.name %></p>
+      <p class="place-address">アドレス：<%= @place.address %></p>
+      <p class="place-map">Google Map：<%= link_to "こちら", @place.map %></p>
+    </li>
+  </ul>
+
+    <%= link_to "リスト編集", edit_card_place_path(@place.card_id, @place.id), method: :get, class: "card-red-btn" %>
+    <%= link_to "リスト削除", card_place_path(@place.card_id, @place.id), method: :delete, class:"card-destroy" %>
+</div>
+
+<%= render "shared/footer" %>

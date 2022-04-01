@@ -33,7 +33,7 @@ a {
 main
 *****************/
 .main {
-
+  padding-top: 55px;
 }
 
 @media (min-width: 768px) {
