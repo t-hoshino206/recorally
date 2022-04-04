@@ -16,11 +16,13 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: left;
+  margin-bottom: 3vh;
 }
 .stamp-grid li {
   flex-basis: 32%;
   margin-right: 2%;
-  border: 1px solid #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 .stamp-grid li:nth-child(3n) {
   margin-right: 0;
