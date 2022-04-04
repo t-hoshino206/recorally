@@ -13,9 +13,10 @@
       <p class="place-map"><span>Google Map：</span><%= link_to "こちら", @place.map %></p>
     </li>
   </ul>
-
-  <%= link_to "リスト編集", edit_card_place_path(@place.card_id, @place.id), method: :get, class: "form-yellow-btn" %>
-  <%= link_to "リスト削除", card_place_path(@place.card_id, @place.id), method: :delete, class:"form-destroy-btn" %>
+  <% if user_signed_in? && current_user.id == @place.card_id %>
+    <%= link_to "リスト編集", edit_card_place_path(@place.card_id, @place.id), method: :get, class: "form-yellow-btn" %>
+    <%= link_to "リスト削除", card_place_path(@place.card_id, @place.id), method: :delete, class:"form-destroy-btn" %>
+  <% end %>
 </div>
 
 <%= render "shared/footer" %>
