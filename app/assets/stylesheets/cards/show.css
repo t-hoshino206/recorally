@@ -5,18 +5,20 @@
 }
 
 #cards-show .main .card-title {
+  font-size: 20px;
   text-align: center;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 1vh;
 }
 #cards-show .main .card-description {
+  font-size: 16px;
   text-align: center;
-  font-size: 14px;
+  margin-bottom: 3vh;
 }
 
 .midashi-list {
   font-weight: bold;
-  margin: 40px 0 20px;
+  margin: 5vh 0 2vh;
 }
 .place-list {
   width: 100%;
@@ -26,22 +28,49 @@
 .place-list li {
   border-bottom: 1px solid #333;
 }
+.place-list li:nth-child(odd) {
+  background: #f0f0f0;
+}
 .place-list li:last-child {
   border-bottom: 0;
 }
-.place-list li h3,
-.place-list li a,
-.place-list li p {
+.place-list li dl {
+  display: flex;
+  flex-wrap :wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.place-list li dl dt {
+  flex-basis: 80%;
+}
+.place-list li dl dt h3,
+.place-list li dl dt p,
+.place-list li dl dt span {
   font-size: 14px;
 }
-.place-list .place-image img {
-  width: 100%;
+.place-list li dt span {
+  font-weight: bold;
 }
-.place-list .place-menu,
-.place-list .place-pref,
-.place-list .place-address,
-.place-list .place-map {
+.place-list .place-name,
+.place-list .place-menu {
+  padding: 0.5em 3%;
+}
+.place-list .place-menu {
   border-top: 1px dotted #333;
+}
+.place-list dl dd {
+  flex-basis: 17%;
+  padding-right: 3%;
+}
+.place-list dl dd a {
+  display: block;
+  background: #333;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5vh;
 }
 
 @media (min-width: 768px) {

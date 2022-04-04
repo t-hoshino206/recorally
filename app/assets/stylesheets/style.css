@@ -1,3 +1,6 @@
+/*****************
+common
+*****************/
 *, html {
 	font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
 	font-size: 18px;
@@ -15,6 +18,16 @@ a {
   text-decoration: none;
 }
 
+.indispensable {
+  background: #ea352d;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 @media (min-width: 768px) {
   html {
     background: #ccc;
@@ -29,15 +42,179 @@ a {
   }
 }
 
+
 /*****************
 main
 *****************/
 .main {
-  padding-top: 55px;
+  padding: 75px 0;
 }
 
 @media (min-width: 768px) {
   .main {
-    padding-top: 60px;
+    height: 844px;
+    padding: 85px 0;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .main::-webkit-scrollbar{
+    display: none;
+  }
+}
+
+
+/*****************
+form
+*****************/
+.form-wrap {
+  padding: 75px 0;
+}
+.form-header {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.form-group {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.form-string,
+.form-text,
+.form-pulldown,
+.form-image {
+  margin-bottom: 2vh;
+}
+.form-group li:last-child {
+  margin-bottom: 5vh;
+}
+.form-subject {
+  font-size: 14px;
+  font-weight: bold;
+}
+.additional-text {
+  color: #888;
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+.input-string {
+  width: 100%;
+  margin-top: 5px;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+}
+.input-text {
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+}
+.select-box {
+  height: 48px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin-top: 5px;
+  padding-left: 15px;
+}
+.click-upload {
+  margin-top: 5px;
+}
+.click-upload>p {
+  font-size: 14px;
+  margin-bottom: 1.5vh;
+}
+.input-image {
+  font-size: 16px;
+}
+
+.btn-group {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2vh;
+}
+.btn-text {
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 2vh;
+}
+.btn-text:last-child {
+  margin: 0;
+  padding-bottom: 50px;
+}
+.btn-text>span {
+  color: #0099e8;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.form-yellow-btn {
+  width: 65%;
+  background: #ffde00;
+  border: none;
+  border-radius: 10px;
+  color: #333;
+  font-weight: bold;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+.form-back-btn,
+.form-destroy-btn {
+  width: 65%;
+  background: #aaa;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  margin: 2vh auto 0;
+}
+.form-add-btn {
+  width: 65%;
+  background: #ff8700;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  margin: 3vh auto 0;
+}
+
+@media (min-width: 768px) {
+  .form-wrap {
+    height: 844px;
+    padding: 85px 0;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .form-wrap::-webkit-scrollbar{
+    display: none;
+  }
+  .form-string {
+    margin-bottom: 20px;
   }
 }
