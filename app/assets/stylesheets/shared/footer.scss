@@ -4,23 +4,56 @@
   bottom: 0;
 }
 #menuBtn {
-  background: #333;
+  height: 55px;
+  background: #fff;
+  border-top: 1px solid #ccc;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 #menuBtn li {
-  color: #fff;
+  flex-basis: 25%;
   text-align: center;
 }
 #menuBtn li a {
-  color: #fff;
+  font-size: 11px;
   text-align: center;
+}
+#menuBtn .btn-home a::before {
+  content: '\f015';
+  font-family: 'Font Awesome 5 Free';
+  font-size: 20px;
+  font-weight: 600;
+  display: block;
+}
+#menuBtn .btn-card a::before {
+  content: '\f009';
+  font-family: 'Font Awesome 5 Free';
+  font-size: 20px;
+  font-weight: 600;
+  display: block;
+}
+#menuBtn .btn-search a::before {
+  content: '\f002';
+  font-family: 'Font Awesome 5 Free';
+  font-size: 20px;
+  font-weight: 600;
+  display: block;
+}
+#menuBtn .btn-setting a::before {
+  content: '\f013';
+  font-family: 'Font Awesome 5 Free';
+  font-size: 20px;
+  font-weight: 600;
+  display: block;
 }
 
 @media screen and (min-width: 768px) {
   #page-footer {
     width: 390px;
     margin-bottom: calc(50vh - 422px);
+  }
+  #menuBtn {
+    height: 60px;
   }
 }

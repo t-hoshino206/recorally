@@ -17,7 +17,7 @@
 logo-icon
 =============*/
 .logo-icon {
-  width: 130px;
+  width: 150px;
   height: 55px;
   display: flex;
   align-items: center;
@@ -32,7 +32,7 @@ logo-icon
 
 @media screen and (min-width: 768px) {
   .logo-icon {
-    width: 120px;
+    width: 155px;
     height: 60px;
   }
 }
@@ -47,7 +47,7 @@ nav {
   bottom: 0;
   width: 220px;
   height: calc(100% - 55px);
-  background: #ffde00;
+  background: #dedede;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -63,26 +63,61 @@ nav .inner {
   padding: 25px;
 }
 nav .inner .user-profile {
-  font-weight: bold;
+  margin-bottom: 3vh;
 }
-nav .inner .user-profile a {
-  font-size: 15px;
+nav .inner .user-profile dt {
+  font-weight: bold;
+  margin-bottom: 0.5vh;
+}
+nav .inner .user-profile dt a {
+  font-size: 14px;
+}
+nav .inner .user-profile dd a {
+  background: #333;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 0.5vh 1vw;
+}
+nav .inner .user-signup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 3vh;
+}
+nav .inner .user-signup dt,
+nav .inner .user-signup dd {
+  flex-basis: 45%;
+  background: #333;
+  border-radius: 10px;
+  text-align: center;
+  padding: 0.5vh 1vw;
+}
+nav .inner .user-signup dt a,
+nav .inner .user-signup dd a {
+  color: #fff;
+  font-size: 14px;
 }
 nav .inner ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
 }
 nav .inner ul li {
   position: relative;
   margin: 0;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px dashed #333;
+}
+nav .inner ul li:last-child {
+  border-bottom: 0;
 }
 nav .inner ul li a {
   display: block;
   color: #333;
   font-size: 14px;
-  padding: 1em;
+  padding: 0.5em 0;
   text-decoration: none;
   transition-duration: 0.2s;
 }

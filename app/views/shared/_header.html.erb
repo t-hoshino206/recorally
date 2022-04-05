@@ -3,7 +3,7 @@
 <header id="page-header">
   <div id="navArea">
     <div class="logo-icon">
-      <%= link_to image_tag("furima-logo-color.png"), "/" %>
+      <%= link_to image_tag("tabealook-logo.png"), "/" %>
     </div>
     <nav>
       <div class="inner">
@@ -12,15 +12,16 @@
             <dt><%= link_to current_user.nickname, "#", class: "user-nickname" %></dt>
             <dd><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></dd>
           </dl>
+        <% else %>
+          <dl class="user-signup">
+            <dt><%= link_to 'ログイン', new_user_session_path, class: "login" %></dt>
+            <dd><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></dd>
+          </dl>
         <% end %>
         <ul>
-          <% unless user_signed_in? %>
-            <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-            <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-          <% end %>
-          <li>お知らせ</li>
-          <li>会社概要</li>
-          <li>利用規約</li>
+          <li><a href="#">お知らせ</a></li>
+          <li><a href="#">会社概要</a></li>
+          <li><a href="#">利用規約</a></li>
         </ul>
       </div>
     </nav>

@@ -4,6 +4,7 @@
 | ------------------ | ---------- | ------------------------- |
 | nickname           | string     | null: false               |
 | avatar             | string     |                           |
+| header             | string     |                           |
 | email              | string     | null: false, unique: true |
 | encrypted_password | string     | null: false               |
 
@@ -26,7 +27,6 @@
 ### Association
 
 - belongs_to :user
-- has_many :playlogs
 - has_many :places
 
 
@@ -53,13 +53,11 @@
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| card          | references | null: false, foreign_key: true |
 | place         | references | null: false, foreign_key: true |
 | user          | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :card
 - belongs_to :place
 - belongs_to :user
