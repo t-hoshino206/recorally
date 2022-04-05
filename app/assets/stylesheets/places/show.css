@@ -1,11 +1,53 @@
+/*****************
+main
+*****************/
 #places-show .main {
   width: 100vw;
 }
-#places-show .midashi-list {
-  width: 90vw;
-  margin-left: auto;
-  margin-right: auto;
+@media (min-width: 768px) {
+  #places-show .main{
+    width: 390px;
+  }
 }
+
+
+/*****************
+navBar
+*****************/
+.navBar {
+  height: 40px;
+  background: #ff8700;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+}
+.navBar li a,
+.navBar li h2 {
+  color: #fff;
+}
+.navBar .nav-back,
+.navBar .nav-edit {
+  flex-basis: 20%;
+}
+.navBar .nav-back::before {
+
+}
+.navBar .nav-edit {
+  text-align: right;
+}
+.navBar .page-title {
+  flex-basis: 40%;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .navBar {
+    padding: 0 20px;
+  }
+}
+
+
 .detail-image {
   margin-bottom: 3vh;
 }
@@ -54,10 +96,6 @@
 }
 
 @media (min-width: 768px) {
-  #places-show .main{
-    width: 390px;
-  }
-  #places-show .midashi-list,
   .place-info {
     width: 350px;
   }

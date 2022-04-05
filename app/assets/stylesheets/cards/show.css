@@ -1,7 +1,44 @@
+/*****************
+main
+*****************/
 #cards-show .main {
   width: 90vw;
   margin-left: auto;
   margin-right: auto;
+}
+@media (min-width: 768px) {
+  #cards-show .main{
+    width: 350px;
+  }
+}
+
+
+/*****************
+stamp-grid
+*****************/
+.stamp-grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 3vh;
+}
+.stamp-grid li {
+  flex-basis: 32%;
+  height: 10vh;
+  margin-right: 2%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.stamp-grid li:nth-child(3n) {
+  margin-right: 0;
+}
+.stamp-grid li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 #cards-show .main .card-title {
@@ -71,10 +108,4 @@
   font-weight: bold;
   text-align: center;
   padding: 0.5vh;
-}
-
-@media (min-width: 768px) {
-  #cards-show .main{
-    width: 350px;
-  }
 }

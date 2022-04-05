@@ -1,9 +1,13 @@
 <%= render "shared/header" %>
 
 <div class="main">
-  <div class="detail-image"><%= image_tag @place.image %></div>  
+  <ul class="navBar">
+    <li class="nav-back"><%= link_to "戻る", card_path(@place.card_id) %></li>
+    <li class="page-title"><h2>スポット情報</h2></li>
+    <li class="nav-edit"><%= link_to "編集", edit_card_place_path(@place.card_id, @place.id), method: :get %></li>
+  </ul>
+  <div class="detail-image"><%= image_tag @place.image %></div>
 
-  <h2 class="midashi-list">スポット情報</h2>
   <ul class="place-info">
     <li>
       <h3 class="place-name"><span>店舗名：</span><%= @place.name %></h3>
@@ -14,8 +18,8 @@
     </li>
   </ul>
   <% if user_signed_in? && current_user.id == @place.card_id %>
-    <%= link_to "リスト編集", edit_card_place_path(@place.card_id, @place.id), method: :get, class: "form-yellow-btn" %>
-    <%= link_to "リスト削除", card_place_path(@place.card_id, @place.id), method: :delete, class:"form-destroy-btn" %>
+    <%= link_to "このスポットを編集", edit_card_place_path(@place.card_id, @place.id), method: :get, class: "form-yellow-btn" %>
+    <%= link_to "このスポットを削除", card_place_path(@place.card_id, @place.id), method: :delete, class:"form-destroy-btn" %>
   <% end %>
 </div>
 
