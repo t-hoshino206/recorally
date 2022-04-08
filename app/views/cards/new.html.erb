@@ -3,7 +3,7 @@
 <%= form_with model: @card_place, url: cards_path, local: true do |f| %>
 <div class="form-wrap">
   <h1 class="form-header">カードの情報を入力</h1>
-  <%= render 'shared/error_messages', model: @card_place %>
+  <%= render 'shared/error_messages', model: f.object %>
 
   <ul class="form-group">
     <li class="form-string">
@@ -61,8 +61,8 @@
   </ul>
 
   <div class="btn-group">
-    <%= f.submit "作成する" ,class:"form-yellow-btn" %>
-    <%= link_to 'もどる', root_path, class:"form-back-btn" %>
+    <%= f.submit "作成する" ,class:"btn-card-new" %>
+    <%= link_to 'もどる', root_path, class:"btn-back" %>
   </div>
 </div>
 <% end %>

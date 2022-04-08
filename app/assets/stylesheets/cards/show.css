@@ -2,11 +2,11 @@
 main
 *****************/
 #cards-show .main {
-  padding: 75px 0 55px;
+  width: 100vw;
 }
 @media (min-width: 768px) {
   #cards-show .main{
-    padding: 80px 0 60px; 
+    width: 390px;
   }
 }
 
@@ -85,7 +85,7 @@ stamp-grid
   flex-wrap: wrap;
   align-items: center;
   justify-content: left;
-  margin: 0 auto 3vh;
+  margin: 20px auto;
 }
 .stamp-grid li {
   flex-basis: 32%;
@@ -114,7 +114,7 @@ stamp-grid
 .stamp-grid .complete::before {
   content: '\f058';
   font-family: 'Font Awesome 5 Free';
-  color: #ff8700;
+  color: #17bae0;
   font-size: 50px;
   font-weight: 600;
   position: absolute;

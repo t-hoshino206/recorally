@@ -12,54 +12,6 @@ main
 
 
 /*****************
-navBar
-*****************/
-.navBar {
-  height: 40px;
-  background: #6f7e53;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5vw;
-}
-.navBar li a,
-.navBar li h2 {
-  color: #fff;
-}
-.navBar .nav-back,
-.navBar .nav-edit,
-.navBar .nav-blank {
-  flex-basis: 20%;
-}
-.navBar .nav-back a::before {
-  content: '\f104';
-  font-family: 'Font Awesome 5 Free';
-  color: #fff;
-  font-weight: 600;
-}
-.navBar .nav-edit {
-  text-align: right;
-}
-.navBar .nav-edit a::before {
-  content: '\f303';
-  font-family: 'Font Awesome 5 Free';
-  color: #fff;
-  font-weight: 600;
-}
-.navBar .page-title {
-  flex-basis: 40%;
-  font-size: 16px;
-  text-align: center;
-}
-@media (min-width: 768px) {
-  .navBar {
-    padding: 0 20px;
-  }
-}
-
-
-/*****************
 detail-image
 *****************/
 .detail-image {
@@ -86,7 +38,7 @@ detail-image
 .detail-image .complete::before {
   content: '\f058';
   font-family: 'Font Awesome 5 Free';
-  color: #ff8700;
+  color: #17bae0;
   font-size: 100px;
   font-weight: 600;
   position: absolute;
@@ -172,6 +124,9 @@ place-info
 /*****************
 btn
 *****************/
+#places-show .button_c2 {
+  margin-top: 3vh;
+}
 .btn-place-map {
   width: 90vw;
   background: #e3ead6;
@@ -253,6 +208,9 @@ btn
 }
 
 @media (min-width: 768px) {
+  #places-show .button_c2 {
+    margin-top: 20px;
+  }
   .btn-place-map,
   .btn-place-press,
   .btn-place-visited {

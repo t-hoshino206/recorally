@@ -2,3 +2,34 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+  
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        avatar: アバター画像
+        header: ヘッダー画像
+      card:
+        title: カード名
+        description: 説明
+        category_id: カテゴリー
+      place:
+        name: 店舗名
+        menu: おすすめメニュー
+        image: 画像
+        prefecture_id: 都道府県
+        address: アドレス
+        map: Google Map
+  
+  activemodel:
+    attributes:
+      card_place:
+        title: カード名
+        description: 説明
+        category_id: カテゴリー
+        name: 店舗名
+        menu: おすすめメニュー
+        image: 画像
+        prefecture_id: 都道府県
+        address: アドレス
+        map: Google Map

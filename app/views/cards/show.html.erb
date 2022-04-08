@@ -1,6 +1,16 @@
 <%= render "shared/header" %>
 
 <div class="main">
+  <ul class="navBar">
+    <li class="nav-back"><%= link_to "", root_path %></li>
+    <li class="page-title"><h2>スタンプカード情報</h2></li>
+    <% if user_signed_in? && current_user.id == @card.user_id %>
+      <li class="nav-edit"><%= link_to "", edit_card_path(@card.id), method: :get %></li>
+    <% else %>
+      <li class="nav-blank"></li>
+    <% end %>
+  </ul>
+
   <ul class="stamp-grid">
     <% @places.each do |place| %>
       <li>
