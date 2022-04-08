@@ -6,29 +6,65 @@
 
 <div class="main">
   <% if user_signed_in? %>
-    <h2>新着スタンプラリー</h2>
-    <ul class="cards-list">
-      <% if @cards.exists? %>
-        <% @cards.each do |card| %>
+    <div class="profileHeader">
+      <div class="header-image">
+        <% if current_user.header.present? %>
+          <%= image_tag(current_user.header) %>
+        <% end %>
+      </div>
+      <div class="header-avatar">
+        <% if current_user.avatar.present? %>
+          <%= image_tag(current_user.avatar) %>
+        <% end %>
+      </div>
+      <dl class="header-text">
+        <dt class="text-username"><%= current_user.nickname %></dt>
+        <dd class="text-status">
+          <p class="userpost">投稿：<span><%= current_user.cards.count %></span></p>
+          <p class="stamp">押したスタンプ：<span><%= current_user.playlogs.count %></span></p>
+          <p class="blank"></p>
+          <p class="follow">フォロー中：<span>7</span></p>
+          <p class="follower">フォロワー：<span>7</span></p>
+        </dd>
+      </dl>
+    </div>
+
+    <div class="newArrival">
+      <h2>新着スタンプカード一覧</h2>
+      <ul class="cards-list">
+        <% if @cards.exists? %>
+          <% @cards.each do |card| %>
+            <li>
+              <dl class="card-detail">
+                <dt class="user-avatar">
+                  <%= image_tag(card.user.avatar) %>
+                </dt>
+                <dd class="card-text">
+                  <%= link_to card_path(card.id) do %>
+                    <h3 class="card-title"><%= card.title %></h3>
+                    <p class="user-nickname">by <%= card.user.nickname %> さん</p>
+                    <p class="user-create"><%= l card.created_at %></p>
+                  <% end %>
+                <dd>
+              </dl>
+            </li>
+          <% end %>
+        <% else %>
           <li>
             <dl class="card-detail">
               <dt class="user-avatar">
                 <%= image_tag("default-avatar.png") %>
               </dt>
               <dd class="card-text">
-                <%= link_to card_path(card.id) do %>
-                  <h3 class="user-nickname"><%= card.user.nickname %></h3>
-                  <p class="card-title"><%= card.title %></p>
-                <% end %>
+                <h3 class="user-nickname">名無しの権兵衛</h3>
+                <p class="card-title">みんなにおすすめをシェアしよう！</p>
+                <p class="user-create">2022/4/15 0:00:00</p>
               <dd>
             </dl>
           </li>
         <% end %>
-      <% else %>
-        <li>
-        </li>
-      <% end %>
-    </ul>
+      </ul>
+    </div>
   <% else %>
     <div class="top-intro">
       <div class="inner">

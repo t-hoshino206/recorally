@@ -2,12 +2,75 @@
 main
 *****************/
 #cards-show .main {
-  width: 90vw;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 75px 0 55px;
 }
 @media (min-width: 768px) {
   #cards-show .main{
+    padding: 80px 0 60px; 
+  }
+}
+
+
+/*****************
+btn
+*****************/
+.btn-card-edit {
+  background: #fff;
+  border: 3px solid #6f7e53;
+  border-radius: 10px;
+  color: #333;
+  font-weight: bold;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+}
+.btn-card-edit::before {
+  content: '\f303';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 600;
+  margin-right: 0.25em;
+}
+.btn-card-destroy {
+  background: #fff;
+  border: 3px solid #6f7e53;
+  border-radius: 10px;
+  color: #333;
+  font-weight: bold;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+}
+.btn-card-destroy::before {
+  content: '\f2ed';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 600;
+  margin-right: 0.25em;
+}
+.btn-place-add {
+  width: 90vw;
+  border: 3px solid #6f7e53;
+  border-radius: 30px;
+  color: #333;
+  font-weight: bold;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  margin: 3vh auto 0;
+}
+.btn-place-add::before {
+  content: '\f055';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 600;
+  margin-right: 0.25em;
+}
+
+@media (min-width: 768px) {
+  .btn-place-add {
     width: 350px;
   }
 }
@@ -17,20 +80,21 @@ main
 stamp-grid
 *****************/
 .stamp-grid {
-  width: 100%;
+  width: 90vw;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: left;
-  margin-bottom: 3vh;
+  margin: 0 auto 3vh;
 }
 .stamp-grid li {
   flex-basis: 32%;
-  height: 10vh;
+  height: 15vh;
   margin-right: 2%;
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
+  position: relative;
 }
 .stamp-grid li:nth-child(3n) {
   margin-right: 0;
@@ -40,33 +104,91 @@ stamp-grid
   height: 100%;
   object-fit: cover;
 }
+.stamp-grid li .grey {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.stamp-grid .complete::before {
+  content: '\f058';
+  font-family: 'Font Awesome 5 Free';
+  color: #ff8700;
+  font-size: 50px;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit- transform: translateY(-50%) translateX(-50%);
+  margin: auto;
+  background: #fff;
+  border-radius: 25px;
+}
 
+@media (min-width: 768px) {
+  .stamp-grid {
+    width: 350px;
+  }
+  .stamp-grid li {
+    height: 112px;
+  }
+}
+
+
+/*****************
+card-title
+*****************/
 #cards-show .main .card-title {
   font-size: 20px;
   text-align: center;
   font-weight: bold;
-  margin-bottom: 1vh;
+  margin-bottom: 0.25vh;
+}
+#cards-show .main .card-author {
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1.5vh;
 }
 #cards-show .main .card-description {
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
   margin-bottom: 3vh;
 }
+#cards-show .button_c2 {
+  margin-bottom: 3vh;
+}
 
+
+/*****************
+recommend-list
+*****************/
+.recommend-list {
+  background: #e3ead6;
+  padding: 20px 0;
+}
 .midashi-list {
   font-weight: bold;
-  margin: 5vh 0 2vh;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.midashi-list::before {
+  content: '\e0bb';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 600;
+  margin-right: 0.25em;
 }
 .place-list {
-  width: 100%;
+  width: 90vw;
   border-top: 1px solid #333;
   border-bottom: 1px solid #333;
+  margin: 0 auto;
 }
 .place-list li {
   border-bottom: 1px solid #333;
-}
-.place-list li:nth-child(odd) {
-  background: #f0f0f0;
 }
 .place-list li:last-child {
   border-bottom: 0;
@@ -92,8 +214,8 @@ stamp-grid
 .place-list .place-menu {
   padding: 0.5em 3%;
 }
-.place-list .place-menu {
-  border-top: 1px dotted #333;
+.place-list .place-name {
+  border-top: 1px dashed #333;
 }
 .place-list dl dd {
   flex-basis: 17%;
@@ -101,11 +223,17 @@ stamp-grid
 }
 .place-list dl dd a {
   display: block;
-  background: #333;
-  border-radius: 10px;
+  background: #6f7e53;
+  border-radius: 20px;
   color: #fff;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 600;
   text-align: center;
-  padding: 0.5vh;
+  padding: 0.75vh 0;
+}
+
+@media (min-width: 768px) {
+  .place-list {
+    width: 350px;
+  }
 }

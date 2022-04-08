@@ -5,41 +5,50 @@
     <% @places.each do |place| %>
       <li>
         <%= link_to card_place_path(place.card_id, place.id) do %>
-          <%= image_tag place.image %>
+          <% if current_user.id != @card.user_id && place.playlogs.present? %>
+            <%= image_tag place.image, class: "grey" %>
+            <div class="complete"></div>
+          <% else %>
+            <%= image_tag place.image %>
+          <% end %>
         <% end %>
       </li>
     <% end %>
   </ul>
 
   <h2 class="card-title"><%= @card.title %></h2>
+  <p class="card-author">by <%= @card.user.nickname %> さん</p>
   <p class="card-description"><%= @card.description %></p>
 
-  <% if user_signed_in? && current_user.id == @card.user_id %>
-    <%= link_to "カード編集", edit_card_path(@card.id), method: :get, class: "form-yellow-btn" %>
-    <%= link_to "カード削除", card_path(@card.id), method: :delete, class:"form-destroy-btn" %>
-  <% end %>
-
-
-  <h2 class="midashi-list">Recommend List</h2>
-  <ul class="place-list">
-    <% @places.each do |place| %>
-      <li>
-        <dl>
-          <dt>
-            <h3 class="place-name"><span>店舗名：</span><%= place.name %></h3>
-            <p class="place-menu"><span>おすすめメニュー：</span><%= place.menu %></p>
-          </dt>
-          <dd>
-            <%= link_to "詳細", card_place_path(place.card_id, place.id) %>
-          </dd>
-        </dl>
-      </li>
+  <div class="button_c2">
+    <% if user_signed_in? && current_user.id == @card.user_id %>
+      <%= link_to "カード編集", edit_card_path(@card.id), method: :get, class: "btn-card-edit" %>
+      <%= link_to "カード削除", card_path(@card.id), method: :delete, class:"btn-card-destroy" %>
     <% end %>
-  </ul>
+  </div>
 
-  <% if user_signed_in? && current_user.id == @card.user_id %>
-    <%= link_to "リスト追加", new_card_place_path(@card.id), method: :get, class: "form-add-btn" %>
-  <% end %>
+  <div class="recommend-list">
+    <h2 class="midashi-list">お気に入りリスト</h2>
+    <ul class="place-list">
+      <% @places.each do |place| %>
+        <li>
+          <dl>
+            <dt>
+              <h3 class="place-menu"><span>おすすめメニュー：</span><%= place.menu %></h3>
+              <p class="place-name"><span>店舗名：</span><%= place.name %></p>
+            </dt>
+            <dd>
+              <%= link_to "詳細", card_place_path(place.card_id, place.id) %>
+            </dd>
+          </dl>
+        </li>
+      <% end %>
+    </ul>
+
+    <% if user_signed_in? && current_user.id == @card.user_id %>
+      <%= link_to "リスト追加", new_card_place_path(@card.id), method: :get, class: "btn-place-add" %>
+    <% end %>
+  </div>
 </div>
 
 <%= render "shared/footer" %>

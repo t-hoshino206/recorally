@@ -12,6 +12,7 @@
 ### Association
 
 - has_many :cards
+- has_many :playlogs
 
 
 ## cardsテーブル

@@ -2,25 +2,61 @@
 
 <div class="main">
   <ul class="navBar">
-    <li class="nav-back"><%= link_to "戻る", card_path(@place.card_id) %></li>
-    <li class="page-title"><h2>スポット情報</h2></li>
-    <li class="nav-edit"><%= link_to "編集", edit_card_place_path(@place.card_id, @place.id), method: :get %></li>
+    <li class="nav-back"><%= link_to "", card_path(@place.card_id) %></li>
+    <li class="page-title"><h2>おすすめメニュー</h2></li>
+    <% if user_signed_in? && current_user.id == @place.card.user_id %>
+      <li class="nav-edit"><%= link_to "", edit_card_place_path(@place.card_id, @place.id), method: :get %></li>
+    <% else %>
+      <li class="nav-blank"></li>
+    <% end %>
   </ul>
-  <div class="detail-image"><%= image_tag @place.image %></div>
+  
+  <dl class="detail-image">
+    <dt>
+      <% if current_user.id != @place.card.user_id && @place.playlogs.present? %>
+        <%= image_tag @place.image, class: "grey" %>
+        <div class="complete"></div>
+      <% else %>
+        <%= image_tag @place.image %>
+      <% end %>
+    </dt>
+    <dd>
+      <h3 class="place-menu"><%= @place.menu %></h3>
+    </dd>
+  </dl>
 
-  <ul class="place-info">
-    <li>
-      <h3 class="place-name"><span>店舗名：</span><%= @place.name %></h3>
-      <p class="place-menu"><span>おすすめメニュー：</span><%= @place.menu %></p>
-      <p class="place-pref"><span>所在地：</span><%= @place.prefecture.name %></p>
-      <p class="place-address"><span>アドレス：</span><%= @place.address %></p>
-      <p class="place-map"><span>Google Map：</span><%= link_to "こちら", @place.map %></p>
-    </li>
-  </ul>
-  <% if user_signed_in? && current_user.id == @place.card_id %>
-    <%= link_to "このスポットを編集", edit_card_place_path(@place.card_id, @place.id), method: :get, class: "form-yellow-btn" %>
-    <%= link_to "このスポットを削除", card_place_path(@place.card_id, @place.id), method: :delete, class:"form-destroy-btn" %>
-  <% end %>
+  <div class="place-info">
+    <h3>スポット情報</h3>
+    <ul>
+      <li>
+        <p class="place-name"><span>店舗名：</span><%= @place.name %></p>
+        <p class="place-pref"><span>所在地：</span><%= @place.prefecture.name %></p>
+        <p class="place-address"><span>アドレス：</span><%= @place.address %></p>
+      </li>
+    </ul>
+
+    <% if @place.map.present? %>
+      <%= link_to "地図はこちら", @place.map, target: "_blank", class:"btn-place-map" %>
+    <% end %>
+
+    <% if user_signed_in? && current_user.id == @place.card.user_id %>
+      <div class="button_c2">
+        <%= link_to "このスポットを編集", edit_card_place_path(@place.card_id, @place.id), method: :get, class: "btn-place-edit" %>
+        <%= link_to "このスポットを削除", card_place_path(@place.card_id, @place.id), method: :delete, class:"btn-place-destroy" %>
+      </div>
+    <% else %>
+      <% if @place.playlogs.present? %>
+        <%= link_to "訪問済み", "#", class: "btn-place-visited" %>
+      <% else %>
+        <%= form_with model: @playlog, url: playlogs_path, local: true do |f| %>
+          <%= hidden_field_tag :user_id, current_user.id %>
+          <%= hidden_field_tag :card_id, @place.card_id %>
+          <%= hidden_field_tag :place_id, @place.id %>
+          <%= f.submit "スタンプを押す", class: "btn-place-press" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 <%= render "shared/footer" %>

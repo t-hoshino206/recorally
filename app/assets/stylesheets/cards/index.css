@@ -7,16 +7,157 @@ main
   padding-bottom: 0;
 }
 
-#cards-index .main h2 {
-  text-align: center;
-  font-weight: bold;
-  margin: 20px 0;
-}
-
 @media (min-width: 768px) {
   #cards-index .main {
     width: 390px;
     padding-top: 60px;
+  }
+}
+
+
+/*****************
+profileHeader
+*****************/
+.profileHeader {
+  width: 100%;
+}
+.header-image {
+  height: 120px;
+  background: #333;
+}
+.header-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.header-avatar {
+  width: 100px;
+  height: 100px;
+  background-image: url('default-avatar.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+  border: 5px solid #fff;
+  margin: -50px auto 0;
+}
+.header-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 5px solid #fff;
+  border-radius: 50px;
+}
+.header-text {
+  text-align: center;
+}
+.text-username {
+  font-weight: bold;
+}
+.text-status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.text-status p {
+  font-size: 14px;
+  margin-right: 4%;
+}
+.text-status p:nth-child(2),
+.text-status p:nth-child(5) {
+  margin-right: 0;
+}
+.text-status p span {
+  font-size: 14px;
+  font-weight: 800;
+}
+.text-status .blank {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+}
+
+
+/*****************
+newArrival
+*****************/
+.newArrival {
+  background: #e3ead6;
+  margin-top: 40px;
+  padding: 20px 0;
+}
+.newArrival h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.newArrival h2::before {
+  content: '\f753';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 600;
+  margin-right: 0.25em;
+}
+.cards-list {
+  width: 90vw;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cards-list li {
+  border-bottom: 1px solid #333;
+  padding: 2vh 0;
+}
+.cards-list li .card-detail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.cards-list li .user-avatar {
+  flex-basis: 60px;
+  height: 60px;
+  background-image: url('default-avatar.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+}
+.cards-list li .user-avatar img {
+  width: 100%;
+  border-radius: 50px;
+}
+.cards-list li dl .card-text {
+  flex-basis: 65vw;
+}
+.cards-list li:last-child {
+  border-bottom: 0;
+}
+.cards-list li h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.cards-list li p {
+  font-size: 14px;
+  line-height: 1.4em;
+}
+.cards-list li .user-create {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+@media (min-width: 768px) {
+  .cards-list {
+    width: 350px;
+  }
+  .cards-list li {
+    padding: 10px 0;
+  }
+  .cards-list li .user-avatar {
+    flex-basis: 60px;
+    height: 60px;
+  }
+  .cards-list li dl .card-text {
+    flex-basis: 75%;
   }
 }
 
@@ -58,64 +199,5 @@ intro
   .top-intro .inner {
     width: 390px;
     bottom: 45px;
-  }
-}
-
-
-/*****************
-cards-list
-*****************/
-.cards-list {
-  width: 90vw;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
-  margin-left: auto;
-  margin-right: auto;
-}
-.cards-list li {
-  border-bottom: 1px solid #333;
-  padding: 2vh 3vw;
-}
-.cards-list li .card-detail {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-.cards-list li .user-avatar {
-  flex-basis: 13vw;
-}
-.cards-list li .user-avatar img {
-  width: 100%;
-  border-radius: 50px;
-}
-.cards-list li dl .card-text {
-  flex-basis: 65vw;
-}
-.cards-list li:last-child {
-  border-bottom: 0;
-}
-.cards-list li h3 {
-  font-size: 16px;
-  font-weight: bold;
-}
-.cards-list li p {
-  font-size: 14px;
-  line-height: 1.4em;
-}
-
-@media (min-width: 768px) {
-  .cards-list {
-    width: 350px;
-  }
-  .cards-list li {
-    padding: 10px 0;
-  }
-  .cards-list li .user-avatar {
-    flex-basis: 17%;
-    margin-top: 0.2em;
-  }
-  .cards-list li dl .card-text {
-    flex-basis: 75%;
   }
 }

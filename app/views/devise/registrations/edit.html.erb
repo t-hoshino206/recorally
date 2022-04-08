@@ -1,1 +1,40 @@
 <%= render "shared/second-header" %>
+
+<%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+<div class="form-wrap">
+  <h1 class="form-header">アカウント情報入力</h1>
+  <%= render 'shared/error_messages', model: f.object %>
+
+  <ul class="form-group">
+    <li class="form-string">
+      <label class="form-subject">ニックネーム</label>
+      <span class="indispensable">必須</span>
+      <%= f.text_area :nickname, class:"input-string", id:"nickname", placeholder:"20文字以内で入力", maxlength:"20", autofocus: true %>
+    </li>
+    <li class="form-string">
+      <label class="form-subject">メールアドレス</label>
+      <span class="indispensable">必須</span>
+      <%= f.email_field :email, class:"input-string", id:"email", placeholder:"PC・携帯どちらでも可" %>
+    </li>
+    <li class="form-image">
+      <label class="form-subject">アバター画像</label>
+      <div class="click-upload">
+        <p>※クリックしてファイルをアップロード</p>
+        <%= f.file_field :avatar, class:"input-image" %>
+      </div>
+    </li>
+    <li class="form-image">
+      <label class="form-subject">ヘッダー画像</label>
+      <div class="click-upload">
+        <p>※クリックしてファイルをアップロード</p>
+        <%= f.file_field :header, class:"input-image" %>
+      </div>
+    </li>
+  </ul>
+
+  <div class="btn-group">
+    <%= f.submit "変更" ,class:"form-yellow-btn" %>
+    <%= link_to 'もどる', root_path, class:"form-back-btn" %>
+  </div>
+</div>
+<% end %>

@@ -56,6 +56,27 @@ main
 
 
 /*****************
+button
+*****************/
+.button_c2 {
+  width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.button_c2 a {
+  flex-basis: 47%;
+}
+
+@media (min-width: 768px) {
+  .button_c2 {
+    width: 350px;
+  }
+}
+
+
+/*****************
 form
 *****************/
 .form-wrap {
