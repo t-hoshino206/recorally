@@ -41,6 +41,9 @@ https://recorally.herokuapp.com/
 [要件を定義したシート](https://docs.google.com/spreadsheets/d/1xp8unMI8xZ1gxdxHfx-YYX8BdA-iDF0M30uJ8dubrlw/edit#gid=1650945082)
 
 # 実装した機能についての画像やGIFおよびその説明
+![ホーム画面](screencapture_1.png)
+![スタンプカード詳細ページ](screencapture_2.png)
+![メニュー詳細ページ](screencapture_3.png)
 
 # 実装予定の機能
 <ul>

@@ -8,7 +8,7 @@ class Place < ApplicationRecord
   validates :prefecture_id, numericality: {other_than: 1, message: "が選択されていません"}
   validates :address, presence: true
 
-  has_many :playlogs
+  has_many :playlogs, dependent: :destroy
   belongs_to :card
   has_one_attached :image
 end
