@@ -41,12 +41,12 @@ https://recorally.herokuapp.com/
 [要件を定義したシート](https://docs.google.com/spreadsheets/d/1xp8unMI8xZ1gxdxHfx-YYX8BdA-iDF0M30uJ8dubrlw/edit#gid=1650945082)
 
 # 実装した機能についての画像やGIFおよびその説明
-◆ホーム画面<br>
-![ホーム画面](screencapture_1.png)<br>
-◆スタンプカード詳細ページ<br>
-![スタンプカード詳細ページ](screencapture_2.png)<br>
-◆メニュー詳細ページ<br>
-![メニュー詳細ページ](screencapture_3.png)<br>
+## ホーム画面
+![ホーム画面](screencapture_1.png)<br><br>
+## スタンプカード詳細ページ
+![スタンプカード詳細ページ](screencapture_2.png)<br><br>
+## メニュー詳細ページ
+![メニュー詳細ページ](screencapture_3.png)<br><br>
 
 # 実装予定の機能
 <ul>
@@ -75,10 +75,10 @@ https://recorally.herokuapp.com/
 </ul>
 
 # ローカルでの動作方法
-以下のコマンドを順に実行
-% git clone https://github.com/t-hoshino206/recorally.git
-% cd t-hoshino206/recorally
-% bundle install
+以下のコマンドを順に実行<br>
+% git clone https://github.com/t-hoshino206/recorally.git<br>
+% cd t-hoshino206/recorally<br>
+% bundle install<br>
 % yarn install
 
 # 工夫したポイント
