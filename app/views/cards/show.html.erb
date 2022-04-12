@@ -32,8 +32,8 @@
 
   <div class="button_c2">
     <% if user_signed_in? && current_user.id == @card.user_id %>
-      <%= link_to "カード編集", edit_card_path(@card.id), method: :get, class: "btn-card-edit" %>
-      <%= link_to "カード削除", card_path(@card.id), method: :delete, class:"btn-card-destroy" %>
+      <%= link_to "カードを編集", edit_card_path(@card.id), method: :get, class: "btn-card-edit" %>
+      <%= link_to "カードを削除", card_path(@card.id), method: :delete, class:"btn-card-destroy" %>
     <% end %>
   </div>
 
@@ -56,7 +56,7 @@
     </ul>
 
     <% if user_signed_in? && current_user.id == @card.user_id %>
-      <%= link_to "リスト追加", new_card_place_path(@card.id), method: :get, class: "btn-place-add" %>
+      <%= link_to "メニューを追加", new_card_place_path(@card.id), method: :get, class: "btn-place-add" %>
     <% end %>
   </div>
 </div>

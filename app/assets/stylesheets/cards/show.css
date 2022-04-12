@@ -90,11 +90,17 @@ stamp-grid
 .stamp-grid li {
   flex-basis: 32%;
   height: 15vh;
+  margin-top: 2%;
   margin-right: 2%;
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
   position: relative;
+}
+.stamp-grid li:nth-child(1),
+.stamp-grid li:nth-child(2),
+.stamp-grid li:nth-child(3) {
+  margin-top: 0;
 }
 .stamp-grid li:nth-child(3n) {
   margin-right: 0;

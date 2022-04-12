@@ -3,7 +3,7 @@
 <div class="main">
   <ul class="navBar">
     <li class="nav-back"><%= link_to "", card_path(@place.card_id) %></li>
-    <li class="page-title"><h2>おすすめメニュー</h2></li>
+    <li class="page-title"><h2>メニュー情報</h2></li>
     <% if user_signed_in? && current_user.id == @place.card.user_id %>
       <li class="nav-edit"><%= link_to "", edit_card_place_path(@place.card_id, @place.id), method: :get %></li>
     <% else %>
@@ -41,8 +41,8 @@
 
     <% if user_signed_in? && current_user.id == @place.card.user_id %>
       <div class="button_c2">
-        <%= link_to "このスポットを編集", edit_card_place_path(@place.card_id, @place.id), method: :get, class: "btn-place-edit" %>
-        <%= link_to "このスポットを削除", card_place_path(@place.card_id, @place.id), method: :delete, class:"btn-place-destroy" %>
+        <%= link_to "このメニューを編集", edit_card_place_path(@place.card_id, @place.id), method: :get, class: "btn-place-edit" %>
+        <%= link_to "このメニューを削除", card_place_path(@place.card_id, @place.id), method: :delete, class:"btn-place-destroy" %>
       </div>
     <% else %>
       <% if @place.playlogs.present? %>
