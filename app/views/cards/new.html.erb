@@ -60,6 +60,8 @@
     </li>
   </ul>
 
+  <%= hidden_field_tag :place_id, @place.id %>
+
   <div class="btn-group">
     <%= f.submit "作成する" ,class:"btn-card-new" %>
     <%= link_to 'もどる', root_path, class:"btn-back" %>

@@ -37,7 +37,9 @@
             <li>
               <dl class="card-detail">
                 <dt class="user-avatar">
-                  <%= image_tag(card.user.avatar) %>
+                  <% if card.user.avatar.present? %>
+                    <%= image_tag(card.user.avatar) %>
+                  <% end %>
                 </dt>
                 <dd class="card-text">
                   <%= link_to card_path(card.id) do %>

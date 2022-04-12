@@ -1,7 +1,6 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :card_set, only: [:edit, :update, :destroy]
-  before_action :card_places_set, only: [:show]
+  before_action :card_set, only: [:show, :edit, :update, :destroy]
 
   def index
     @cards = Card.order(created_at: "DESC")
@@ -22,6 +21,7 @@ class CardsController < ApplicationController
   end
 
   def show
+    @places = Place.where(card_id: @card.id).order(created_at: "ASC")
   end
 
   def edit
@@ -44,15 +44,6 @@ class CardsController < ApplicationController
 
   def card_set
     @card = Card.find(params[:id])
-  end
-
-  def place_set
-    @place = Card.find(params[:id])
-  end
-
-  def card_places_set
-    @card = Card.find(params[:id])
-    @places = Place.order(created_at: "ASC")
   end
 
   def card_params
