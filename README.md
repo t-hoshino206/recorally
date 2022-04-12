@@ -9,10 +9,12 @@ tabealook（タベアルック）
 https://recorally.herokuapp.com/
 
 # テスト用アカウント
-Basic認証ID：recorlaly
-Basic認証パスワード：37588
-メールアドレス：
-パスワード：
+<ul>
+  <li>Basic認証ID：recorally</li>
+  <li>Basic認証パスワード：37588</li>
+  <li>メールアドレス：test01@test.co.jp</li>
+  <li>パスワード：test01</li>
+</ul>
 
 # 利用方法
 
