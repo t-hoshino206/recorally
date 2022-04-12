@@ -41,9 +41,12 @@ https://recorally.herokuapp.com/
 [要件を定義したシート](https://docs.google.com/spreadsheets/d/1xp8unMI8xZ1gxdxHfx-YYX8BdA-iDF0M30uJ8dubrlw/edit#gid=1650945082)
 
 # 実装した機能についての画像やGIFおよびその説明
-![ホーム画面](screencapture_1.png)
-![スタンプカード詳細ページ](screencapture_2.png)
-![メニュー詳細ページ](screencapture_3.png)
+◆ホーム画面<br>
+![ホーム画面](screencapture_1.png)<br>
+◆スタンプカード詳細ページ<br>
+![スタンプカード詳細ページ](screencapture_2.png)<br>
+◆メニュー詳細ページ<br>
+![メニュー詳細ページ](screencapture_3.png)<br>
 
 # 実装予定の機能
 <ul>
@@ -53,6 +56,7 @@ https://recorally.herokuapp.com/
   <li>カードのカテゴリプルダウンをハッシュタグ入力方式に変更</li>
   <li>プライベートモード（非公開設定を追加、共有せず自分用に使いたい人へ）</li>
   <li>アバター画像、ヘッダー画像の削除機能</li>
+  <li>PC版デザインの追加</li>
 </ul>
 
 # データベース設計
@@ -78,3 +82,10 @@ https://recorally.herokuapp.com/
 % yarn install
 
 # 工夫したポイント
+<ul>
+  <li>スマホでの使用を想定し、実機プレビューを重ねて<br>
+  押しやすいボタンサイズと読みやすいフォントサイズに調整した</li>
+  <li>利便性を考えて、スポット情報にGoogle Mapのリンクを挿入できるようにした</li>
+  <li>スタンプを押した達成感を表すために、訪問済みのメニュー画像にチェック処理を入れたり<br>
+  ホーム画面のプロフィール欄に押したスタンプ数を挿入した</li>
+</ul>
