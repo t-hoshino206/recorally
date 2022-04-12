@@ -2,7 +2,8 @@
 tabealook（タベアルック）
 
 # アプリケーション概要
-おすすめの外食ごはん・スイーツなどを気軽にシェアし、ユーザー同士でコミュニケーションをとることができる。<br>
+おすすめの外食ごはん・スイーツなどを気軽にシェアし、<br>
+ユーザー同士でコミュニケーションをとることができる。<br>
 スタンプラリー形式にすることで、ゲーム感覚で楽しむことができる。
 
 # URL
@@ -12,8 +13,10 @@ https://recorally.herokuapp.com/
 <ul>
   <li>Basic認証ID：recorally</li>
   <li>Basic認証パスワード：37588</li>
-  <li>メールアドレス：test01@test.co.jp</li>
-  <li>パスワード：test01</li>
+  <li>カード作成者メールアドレス：test01@test.com</li>
+  <li>カード作成者パスワード：test01</li>
+  <li>プレイヤーメールアドレス：test02@test.com</li>
+  <li>プレイヤーパスワード：test02</li>
 </ul>
 
 # 利用方法
@@ -31,10 +34,13 @@ https://recorally.herokuapp.com/
 # アプリケーションを作成した背景
 友人・知人との会話で、おすすめのご飯屋さんについての話題になった時に<br>
 気軽に情報を共有できて、後で見てもわかりやすいアプリがあればいいと感じた。<br>
-ただ情報を入れておくだけでなく、スタンプラリー要素を取り入れることで食べ歩き
+ただ情報を入れておくだけでなく、スタンプカード機能を取り入れることで<br>
+ゲーム感覚で食べ歩きを楽しめるようにした。
 
 # 洗い出した要件
 [要件を定義したシート](https://docs.google.com/spreadsheets/d/1xp8unMI8xZ1gxdxHfx-YYX8BdA-iDF0M30uJ8dubrlw/edit#gid=1650945082)
+
+# 実装した機能についての画像やGIFおよびその説明
 
 # 実装予定の機能
 <ul>
@@ -49,81 +55,16 @@ https://recorally.herokuapp.com/
 # データベース設計
 ![データベース設計](db-image.png)
 
-## usersテーブル
-
-| Column             | Type       | Options                   |
-| ------------------ | ---------- | ------------------------- |
-| nickname           | string     | null: false               |
-| avatar             | string     |                           |
-| header             | string     |                           |
-| email              | string     | null: false, unique: true |
-| encrypted_password | string     | null: false               |
-
-
-### Association
-
-- has_many :cards
-- has_many :playlogs
-
-
-## cardsテーブル
-
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| title       | string     | null: false                    |
-| description | text       | null: false                    |
-| category_id | integer    | null: false                    |
-| user        | references | null: false, foreign_key: true |
-
-
-### Association
-
-- belongs_to :user
-- has_many :places
-
-
-## placesテーブル
-
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| name          | string     | null: false                    |
-| image         | string     | null: false                    |
-| menu          | string     | null: false                    |
-| prefecture_id | integer    | null: false                    |
-| address       | string     | null: false                    |
-| map           | string     |                                |
-| card          | references | null: false, foreign_key: true |
-
-
-### Association
-
-- belongs_to :card
-- has_many :playlogs
-
-
-## playlogsテーブル
-
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| place         | references | null: false, foreign_key: true |
-| user          | references | null: false, foreign_key: true |
-
-
-### Association
-
-- belongs_to :place
-- belongs_to :user
-
 # 画面遷移図
+![画面遷移図](sitemap-image.png)
 
 # 開発環境
 <ul>
-<li>フロントエンド</li>
-<li>バックエンド</li>
-<li>インフラ</li>
-<li>テスト</li>
-<li>テキストエディタ</li>
-<li>タスク管理</li>
+  <li>フロントエンド：HTML/CSS</li>
+  <li>バックエンド：Ruby/Ruby on Rails</li>
+  <li>インフラ：MySQL</li>
+  <li>テキストエディタ：Visual Studio Code</li>
+  <li>タスク管理：GitHub</li>
 </ul>
 
 # ローカルでの動作方法
@@ -132,3 +73,5 @@ https://recorally.herokuapp.com/
 % cd t-hoshino206/recorally
 % bundle install
 % yarn install
+
+# 工夫したポイント
