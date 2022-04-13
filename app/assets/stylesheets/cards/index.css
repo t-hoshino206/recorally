@@ -45,6 +45,7 @@ profileHeader
 .header-avatar img {
   width: 100%;
   height: 100%;
+  background: #fff;
   object-fit: cover;
   border-radius: 50px;
 }
@@ -125,6 +126,9 @@ newArrival
 }
 .cards-list li .user-avatar img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #fff;
   border-radius: 50px;
 }
 .cards-list li dl .card-text {
