@@ -3,14 +3,11 @@ main
 *****************/
 #cards-index .main {
   width: 100vw;
-  padding-top: 55px;
-  padding-bottom: 0;
 }
 
 @media (min-width: 768px) {
   #cards-index .main {
     width: 390px;
-    padding-top: 60px;
   }
 }
 
@@ -178,6 +175,7 @@ intro
   background-repeat: no-repeat;
   background-position: 68% 0;
   position: relative;
+  margin-bottom: -55px;
 }
 .top-intro .inner {
   width: 100%;
@@ -226,6 +224,7 @@ intro
   .top-intro {
     width: 390px;
     height: 784px;
+    margin-bottom: -60px;
   }
   .top-intro .inner {
     width: 390px;
